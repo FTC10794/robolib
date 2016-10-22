@@ -21,10 +21,7 @@ public class MotorFunctions {
      * @param servoMax the maximum value of the servo
      * @param servoDelta the amount by which to change the servo position
      */
-
-    //Constructor initializing the library class with the desired max and min ranges
-    public MotorFunctions(int motorMin, int motorMax, int servoMin, int servoMax,
-                          double servoDelta) {
+    public MotorFunctions(int motorMin, int motorMax, int servoMin, int servoMax, double servoDelta) {
         this.motorMin = motorMin;
         this.motorMax = motorMax;
         this.servoMin = servoMin;
