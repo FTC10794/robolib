@@ -15,19 +15,20 @@ public class MotorFunctions {
     /**
      * Constructor initializing the library class with the desired max and min ranges and servo
      * delta
-     * @param motorMin the minimum value of the DC motor
-     * @param motorMax the maximum value of the DC motor
-     * @param servoMin the minimum value of the servo
-     * @param servoMax the maximum value of the servo
-     * @param servoDelta the amount by which to change the servo position
+     * @param pMotorMin the minimum value of the DC motor
+     * @param pMotorMax the maximum value of the DC motor
+     * @param pServoMin the minimum value of the servo
+     * @param pServoMax the maximum value of the servo
+     * @param pServoDelta the amount by which to change the servo position
      */
-    public MotorFunctions(int motorMin, int motorMax, int servoMin, int servoMax, double servoDelta) {
-        this.motorMin = motorMin;
-        this.motorMax = motorMax;
-        this.servoMin = servoMin;
-        this.servoMax = servoMax;
+    public MotorFunctions(int pMotorMin, int pMotorMax, int pServoMin, int pServoMax, double
+            pServoDelta) {
+        motorMin = pMotorMin;
+        motorMax = pMotorMax;
+        servoMin = pServoMin;
+        servoMax = pServoMax;
 
-        this.servoDelta = servoDelta;
+        servoDelta = pServoDelta;
     }
 
     /**
