@@ -33,6 +33,38 @@ public class MotorFunctions {
     }
 
     /**
+     * Holonomic Drive Intiailizer
+     */
+    public MotorFunctions() {
+        // reverse motors
+    }
+
+
+    public static float[] holonomic(float joystick_turn, float joystick_speed, float
+            joystick_strafe) {
+        // Front Left Wheel: y - x + z (speed - turn + strafe)
+        // Front Right Wheel: y + x - z (speed + turn - strafe)
+        // Back Left Wheel: y + x + z (speed + turn + strafe)
+        // Back Right Wheel: y - x - z (speed - turn - strafe)
+
+        double mag = Math.abs(joystick_turn) + Math.abs(joystick_speed) + Math.abs(joystick_strafe);
+        mag = Range.clip(mag, -1, 1);
+
+        float fl, fr, bl, br;
+        fl = (float)Range.clip((scaleInput(joystick_speed) - scaleInput(joystick_turn) + scaleInput
+                        (joystick_strafe)), -mag, +mag);
+        fr = (float)Range.clip((scaleInput(joystick_speed) + scaleInput(joystick_turn) - scaleInput
+                (joystick_strafe)), -mag, +mag);
+        bl = (float)Range.clip((scaleInput(joystick_speed) + scaleInput(joystick_turn) + scaleInput
+                (joystick_strafe)), -mag, +mag);
+        br = (float)Range.clip((scaleInput(joystick_speed) - scaleInput(joystick_turn) - scaleInput
+                (joystick_strafe)), -mag, +mag);
+        
+        float[] motorVals = {fl, fr, bl, br};
+        return motorVals;
+    }
+
+    /**
      * Normalizes the power level from the joystick value
      * @param joystickValue The value of the joystick
      * @return float power level
