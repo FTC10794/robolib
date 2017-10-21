@@ -59,7 +59,7 @@ public class MotorFunctions {
                 (joystick_strafe)), -mag, +mag);
         br = (float)Range.clip((scaleInput(joystick_speed) - scaleInput(joystick_turn) - scaleInput
                 (joystick_strafe)), -mag, +mag);
-        
+
         float[] motorVals = {fl, fr, bl, br};
         return motorVals;
     }
@@ -118,6 +118,17 @@ public class MotorFunctions {
         currentPosition -= servoDelta;
         currentPosition = Range.clip(currentPosition, servoMin, servoMax);
         return currentPosition;
+    }
+
+    /**
+     * Rotates the servo by 90 degrees in one go, left or right
+     * @param currentPosition double The current servo position
+     * @param direction boolean true: rotate right; false: rotate left
+     * @return double servo position
+     */
+    public static double servoRotate(double currentPosition, boolean direction) {
+        // servo position increments 90 degrees
+        return currentPosition + (direction ? 0.125 : -0.125);
     }
 
     /**
